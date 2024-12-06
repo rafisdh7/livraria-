@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciamento de Livraria</h1>
+        
+        <div class="menu">
+            <button onclick="mostrarAdicionar()">Adicionar Livro</button>
+            <button onclick="listarLivros()">Listar Livros</button>
+            <button onclick="buscarLivro()">Buscar Livro</button>
+            <button onclick="atualizarEstoque()">Atualizar Estoque</button>
+            <button onclick="removerLivro()">Remover Livro</button>
+        </div>
+        
+        <div id="livros-lista"></div>
+        <div id="formulario-adicionar" class="formulario">
+            <h2>Adicionar Livro</h2>
+            <input type="text" id="titulo" placeholder="Título" required>
+            <input type="text" id="autor" placeholder="Autor" required>
+            <input type="number" id="preco" placeholder="Preço" required>
+            <input type="number" id="estoque" placeholder="Estoque" required>
+            <button onclick="adicionarLivro()">Adicionar</button>
+        </div>
+        
+        <div id="formulario-busca" class="formulario">
+            <h2>Buscar Livro por Título</h2>
+            <input type="text" id="titulo-busca" placeholder="Título do Livro">
+            <button onclick="buscarLivroPorTitulo()">Buscar</button>
+            <div id="livro-busca"></div>
+        </div>
+
+        <div id="formulario-atualizar" class="formulario">
+            <h2>Atualizar Estoque</h2>
+            <input type="text" id="titulo-estoque" placeholder="Título do Livro">
+            <input type="number" id="estoque-novo" placeholder="Novo Estoque">
+            <button onclick="atualizarEstoqueLivro()">Atualizar</button>
+        </div>
+        
+        <div id="formulario-remover" class="formulario">
+            <h2>Remover Livro</h2>
+            <input type="text" id="titulo-remover" placeholder="Título do Livro">
+            <button onclick="removerLivroPorTitulo()">Remover</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

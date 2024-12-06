@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.formulario {
+    display: none;
+    margin-top: 20px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+#livros-lista, #livro-busca {
+    margin-top: 20px;
+    text-align: left;
+}
+/* Altera a cor de fundo de toda a página */
+body {
+    font-family: 'colibri', sans-serif;  /* Definindo a fonte como Arial */
+    background-color: #3770a1;         /* Cor de fundo suave (azul claro) */
+    margin: 0;
+    padding: 0;
+    color: #5a4aa1;                    /* Cor do texto padrão */
+}
+
+/* Cor de fundo para a seção do conteúdo */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;         /* Fundo branco para a área principal */
+    border-radius: 8px;                /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(112, 125, 240, 0.1);  /* Sombra suave */
+}
+
+/* Estilos para o cabeçalho */
+h1 {
+    color: #2e8b57;                    /* Cor de texto para o título */
+    font-size: 2.5rem;                  /* Tamanho da fonte do título */
+    margin-bottom: 20px;                /* Margem inferior */
+}
+
+/* Estilo dos botões */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;          /* Cor verde para os botões */
+    color: white;                       /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;                 /* Bordas arredondadas */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;          /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo das caixas de input */
+input {
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;             /* Borda fina e cinza */
+    font-size: 1rem;
+}
+
+/* Estilo da seção do formulário */
+.formulario {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo das mensagens de erro ou sucesso */
+#livros-lista, #livro-busca {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+h2 {
+    color: #333333;                    /* Cor de título para as seções */
+}
+
+/* Estilo do texto de destaque */
+p {
+    font-size: 1.2rem;
+    color: #555555;
+}

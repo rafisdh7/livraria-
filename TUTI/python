@@ -1,0 +1,61 @@
+from flask import Flask, jsonify, request
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)  # Habilita CORS para permitir chamadas de qualquer origem
+
+# Modelo de Livro
+class Livro:
+    def __init__(self, titulo, autor, preco, estoque):
+        self.titulo = titulo
+        self.autor = autor
+        self.preco = preco
+        self.estoque = estoque
+
+    def to_dict(self):
+        return {
+            "titulo": self.titulo,
+            "autor": self.autor,
+            "preco": self.preco,
+            "estoque": self.estoque
+        }
+
+
+# Simulando um banco de dados de livros
+livros = []
+
+@app.route("/livros", methods=["GET"])
+def listar_livros():
+    return jsonify([livro.to_dict() for livro in livros])
+
+@app.route("/livros", methods=["POST"])
+def adicionar_livro():
+    data = request.json
+    livro = Livro(data["titulo"], data["autor"], data["preco"], data["estoque"])
+    livros.append(livro)
+    return jsonify({"message": f'Livro "{livro.titulo}" adicionado com sucesso!'}), 201
+
+@app.route("/livros/<titulo>", methods=["GET"])
+def buscar_livro(titulo):
+    for livro in livros:
+        if livro.titulo.lower() == titulo.lower():
+            return jsonify(livro.to_dict())
+    return jsonify({"message": "Livro não encontrado."}), 404
+
+@app.route("/livros/<titulo>", methods=["PUT"])
+def atualizar_estoque(titulo):
+    novo_estoque = request.json.get("estoque")
+    for livro in livros:
+        if livro.titulo.lower() == titulo.lower():
+            livro.estoque = novo_estoque
+            return jsonify({"message": f'Estoque do livro "{livro.titulo}" atualizado para {livro.estoque}.'})
+    return jsonify({"message": "Livro não encontrado."}), 404
+
+@app.route("/livros/<titulo>", methods=["DELETE"])
+def remover_livro(titulo):
+    global livros
+    livros = [livro for livro in livros if livro.titulo.lower() != titulo.lower()]
+    return jsonify({"message": f'Livro "{titulo}" removido com sucesso!'})
+
+if __name__ == "__main__":
+    app.run(debug=True)
